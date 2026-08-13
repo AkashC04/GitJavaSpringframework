@@ -25,7 +25,10 @@ public class PaymentJPAConfig {
    public DataSource dataSource() {
        DriverManagerDataSource ds = new DriverManagerDataSource();
        ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-       ds.setUrl("jdbc:mysql://localhost:3306/hibernateDB1?useSSL=false&serverTimezone=Asia/Kolkata");
+       ds.setUrl("jdbc:mysql://localhost:3306/hibernateDB1" +
+    		    "?useSSL=false" +
+    		    "&allowPublicKeyRetrieval=true" +
+    		    "&serverTimezone=Asia/Kolkata");
        ds.setUsername("root");
        ds.setPassword("Akash@2002");
        return ds;
