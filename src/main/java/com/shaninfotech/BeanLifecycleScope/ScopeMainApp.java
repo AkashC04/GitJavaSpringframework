@@ -25,6 +25,8 @@ public class ScopeMainApp {
          System.out.println("=========processing payment===========");
          Customer akash = new Customer("101","akash","bngle","SB101");
          Customer var = new Customer("101","akash","bngle","SB101");
+         Customer varun = new Customer("101","akash","bngle","SB101");
+
 
 txn1.getCustomer();
 txn2.getTransactionId();
