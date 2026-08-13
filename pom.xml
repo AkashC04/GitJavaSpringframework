@@ -95,7 +95,7 @@
                 <archive>
                     <manifest>
                         <mainClass>
-                            com.shaninfotech.springFrameworkDbConnect.Main
+                            com.shaninfotech.SpringFramework.SpringFramework.App
                         </mainClass>
                     </manifest>
                 </archive>
