@@ -20,6 +20,8 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <!-- JUnit BOM -->
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
@@ -27,6 +29,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -83,77 +86,124 @@
     </dependencies>
 
     <build>
- 
-    <plugins>
 
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <version>3.4.2</version>
+        <plugins>
 
-            <configuration>
-                <archive>
-                    <manifest>
-                        <mainClass>
-                            com.shaninfotech.SpringFramework.SpringFramework.App
-                        </mainClass>
-                    </manifest>
-                </archive>
-            </configuration>
-        </plugin>
+            <!-- Maven JAR Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
 
-    </plugins>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>
+                                com.shaninfotech.SpringFramework.SpringFramework.App
+                            </mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Maven Shade Plugin
+                 Creates an executable JAR containing
+                 your application + all dependencies -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.6.0</version>
+
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+
+                        <configuration>
+
+                            <transformers>
+
+                                <!-- Set the Main-Class in the executable JAR -->
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>
+                                        com.shaninfotech.SpringFramework.SpringFramework.App
+                                    </mainClass>
+                                </transformer>
+
+                            </transformers>
+
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
 
         <pluginManagement>
+
             <plugins>
 
+                <!-- Clean Plugin -->
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.4.0</version>
                 </plugin>
 
+                <!-- Resources Plugin -->
                 <plugin>
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>3.3.1</version>
                 </plugin>
 
+                <!-- Compiler Plugin -->
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.13.0</version>
                 </plugin>
 
+                <!-- Surefire Plugin -->
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.3.0</version>
                 </plugin>
 
+                <!-- JAR Plugin -->
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>3.4.2</version>
                 </plugin>
 
+                <!-- Install Plugin -->
                 <plugin>
                     <artifactId>maven-install-plugin</artifactId>
                     <version>3.1.2</version>
                 </plugin>
 
+                <!-- Deploy Plugin -->
                 <plugin>
                     <artifactId>maven-deploy-plugin</artifactId>
                     <version>3.1.2</version>
                 </plugin>
 
+                <!-- Site Plugin -->
                 <plugin>
                     <artifactId>maven-site-plugin</artifactId>
                     <version>3.12.1</version>
                 </plugin>
 
+                <!-- Project Info Reports Plugin -->
                 <plugin>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
                     <version>3.6.1</version>
                 </plugin>
 
             </plugins>
+
         </pluginManagement>
+
     </build>
 
 </project>
