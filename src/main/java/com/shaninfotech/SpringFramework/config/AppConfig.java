@@ -10,7 +10,8 @@ import com.shaninfotech.SpringFramework.SpringFramework.Engine;
 @Configuration
 @ComponentScan(basePackages = {
     "com.shaninfotech.SpringFramework.SpringFramework",
-    "com.shaninfotech.injectionStyle"
+    "com.shaninfotech.injectionStyle",
+    "com.shaninfotech.SpringFramework"
 })
 public class AppConfig {
 	@Bean
